@@ -30,7 +30,7 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
     <>
       {/* Overlay that appears behind the sidebar */}
       <div 
-        className={`sidebar-overlay ${
+        className={`fixed inset-0 bg-black/50 transition-opacity duration-300 z-40 ${
           isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         onClick={onClose}
@@ -39,7 +39,7 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
       
       {/* The sidebar drawer */}
       <div
-        className={`sidebar-drawer w-full sm:w-[720px] bg-[#fff4d5] ${
+        className={`fixed top-0 right-0 h-full w-full md:w-3/5 bg-[#fff4d5] transition-transform duration-300 ease-in-out z-50 ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         role="dialog"
@@ -51,7 +51,7 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
         {/* Match the container structure from Header */}
         <div className="container h-full flex flex-col">
           {/* Header layout with close button in same position as hamburger */}
-          <div className="flex justify-between items-center relative pt-5 md:pt-6">
+          <div className="flex items-start justify-between relative pt-5 md:pt-6">
             {/* Logo on the left */}
             <div>
               <Image
@@ -64,7 +64,7 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
             </div>
 
             {/* Close button positioned exactly like hamburger button in header */}
-            <div className="absolute right-0 top-5 md:top-6">
+            <div className="absolute right-0 top-0 md:relative md:self-start md:pt-7">
               <button
                 className="p-2 rounded-full bg-black text-white hover:bg-black/90 focus:outline-none focus:ring-2 focus:ring-black/20"
                 onClick={onClose}
