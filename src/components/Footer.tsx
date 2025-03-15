@@ -2,11 +2,11 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <footer className="container-custom mt-auto py-8">
+    <footer className="container mt-auto py-8">
       <div className="flex flex-wrap justify-center space-x-6 md:space-x-12 py-8">
         <Link 
           href="/app" 
-          className="text-base font-tt-hoves font-bold hover:underline"
+          className="text-base font-tt-hoves-pro-trial font-medium hover:underline"
           aria-label="Enter Alexandria"
           tabIndex={0}
         >
@@ -14,7 +14,7 @@ const Footer = () => {
         </Link>
         <Link 
           href="/manifesto" 
-          className="text-base font-tt-hoves font-bold hover:underline"
+          className="text-base font-tt-hoves-pro-trial font-medium hover:underline"
           aria-label="Manifesto"
           tabIndex={0}
         >
@@ -22,7 +22,7 @@ const Footer = () => {
         </Link>
         <Link 
           href="/about" 
-          className="text-base font-tt-hoves font-bold hover:underline"
+          className="text-base font-tt-hoves-pro-trial font-medium hover:underline"
           aria-label="About Us"
           tabIndex={0}
         >
@@ -30,7 +30,7 @@ const Footer = () => {
         </Link>
         <Link 
           href="/changelog" 
-          className="text-base font-tt-hoves font-bold hover:underline"
+          className="text-base font-tt-hoves-pro-trial font-medium hover:underline"
           aria-label="Changelog"
           tabIndex={0}
         >

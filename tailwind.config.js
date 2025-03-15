@@ -9,17 +9,14 @@ module.exports = {
     container: {
       center: true,
       padding: {
-        DEFAULT: '1rem',
-        md: '1.5rem',
-        lg: '2rem',
+        DEFAULT: '1.5rem', // Consistent padding for all screen sizes
+        sm: '2rem',
+        md: '2.5rem',
+        lg: '3rem',
+        xl: '4rem',
+        '2xl': '5rem',
       },
-      screens: {
-        sm: '640px',
-        md: '768px',
-        lg: '1024px',
-        xl: '1280px',
-        '2xl': '1536px',
-      },
+      // Remove the screens property to prevent width snap points
     },
     extend: {
       colors: {
@@ -50,9 +47,9 @@ module.exports = {
       },
       fontSize: {
         // Semantic sizes for Alexandria typography
-        'alexandria-small': '4rem',
-        'alexandria-medium': '7.25rem',
-        'alexandria-large': '8rem',
+        'alexandria-small': '5rem',
+        'alexandria-medium': '8.5rem',
+        'alexandria-large': '9.5rem',
         // Standard sizes
         '2.5xl': '1.6875rem',
         '4.5xl': '2.6875rem',

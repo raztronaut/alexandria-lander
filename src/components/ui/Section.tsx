@@ -13,7 +13,7 @@ const sectionVariants = cva(
         spacious: "py-24",
       },
       container: {
-        true: "container",
+        true: "",
         false: "",
       },
       divider: {
@@ -43,7 +43,7 @@ export const Section = ({
   className,
   innerClassName,
   variant,
-  container,
+  container = true,
   divider,
   as: Component = 'section',
   children,
@@ -51,7 +51,7 @@ export const Section = ({
 }: SectionProps) => {
   // If container is true, wrap children in a container div
   const content = container ? (
-    <div className={clsx("h-full", innerClassName)}>
+    <div className={clsx("container h-full", innerClassName)}>
       {children}
     </div>
   ) : children;

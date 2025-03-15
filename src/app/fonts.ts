@@ -24,6 +24,11 @@ export const ttHovesProTrial = localFont({
       style: 'normal',
     },
     {
+      path: './fonts/TT Hoves Pro Trial Medium.ttf',
+      weight: '500',
+      style: 'normal',
+    },
+    {
       path: './fonts/TT Hoves Pro Trial Bold.ttf',
       weight: '700',
       style: 'normal',

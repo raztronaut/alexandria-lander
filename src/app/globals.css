@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --z-header: 5;
+    --z-content: 10;
+    --z-sidebar: 50;
+  }
+
   html {
     color-scheme: light;
     @apply m-0 p-0;
@@ -24,9 +30,17 @@
 }
 
 @layer components {
-  /* The container-custom class is deprecated. Use Tailwind's container class instead. */
-  .container-custom {
-    @apply container;
+  /* Container now uses fluid padding without snap points - see tailwind.config.js */
+
+  /* Sidebar and overlay styles for better organization */
+  .sidebar-overlay {
+    @apply fixed inset-0 bg-black/50 transition-opacity duration-300 ease-in-out;
+    z-index: var(--z-sidebar);
+  }
+
+  .sidebar-drawer {
+    @apply fixed top-0 right-0 h-full bg-[#FAF3E0] transform transition-transform duration-300 ease-in-out;
+    z-index: var(--z-sidebar);
   }
 }
 
