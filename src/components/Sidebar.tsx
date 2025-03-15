@@ -48,8 +48,11 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
         tabIndex={isOpen ? 0 : -1}
         onKeyDown={handleKeyDown}
       >
-        {/* Match the container structure from Header */}
-        <div className="container mx-auto max-w-[2560px] h-full flex flex-col">
+        {/* 
+          Use percentage padding that compensates for the sidebar's width 
+          5% of viewport width ÷ 60% of viewport width = 8.33% of sidebar width
+        */}
+        <div className="h-full flex flex-col px-[5%] md:px-[8.33%]">
           {/* Header layout with close button in same position as hamburger */}
           <div className="flex items-start justify-between relative pt-5 md:pt-6">
             {/* Logo on the left */}
@@ -63,8 +66,12 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
               />
             </div>
 
-            {/* Close button positioned exactly like hamburger button in header */}
-            <div className="absolute right-0 top-0 pt-2">
+            {/* 
+              Close button positioned to match hamburger position exactly
+              On mobile (full width): right-0 is correct with px-[5%] padding 
+              On md+ (60% width): position at 0 since padding is already adjusted to 8.33%
+            */}
+            <div className="absolute right-0 top-0 pt-6">
               <button
                 className="p-2 rounded-full bg-black text-white hover:bg-black/90 focus:outline-none focus:ring-2 focus:ring-black/20"
                 onClick={onClose}
@@ -117,7 +124,7 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
             </ul>
           </nav>
           
-          {/* Footer information */}
+          {/* Footer information - adjusted width to provide consistent spacing */}
           <div className="mt-auto pt-8 pb-16 space-y-4 w-full">
             <div className="flex justify-between items-center">
               <span className={`text-base ${ttHovesPro.variable} font-tt-hoves`}>Contact</span>

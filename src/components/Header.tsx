@@ -84,7 +84,7 @@ export const Header = ({ className, style }: HeaderProps = {}) => {
             </div>
 
             {/* Hamburger menu button - always positioned at the top right */}
-            <div className="absolute right-0 top-0 pt-2">
+            <div className="absolute right-0">
               <button
                 className="p-2 rounded-full bg-black text-white hover:bg-black/90 focus:outline-none focus:ring-2 focus:ring-black/20"
                 onClick={handleToggleSidebar}
