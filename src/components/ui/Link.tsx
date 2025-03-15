@@ -65,7 +65,7 @@ export const Link = ({
   ...props
 }: LinkProps) => {
   // Default arrow icon if none provided
-  const icon = iconElement || <span className="ml-1">↗</span>;
+  const icon = iconElement || <span className="ml-[0.25em]">↗</span>;
   
   // Determine if we have an icon
   const hasIcon = !!iconElement || (variant === 'default' && isExternal);

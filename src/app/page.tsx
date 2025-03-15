@@ -13,7 +13,7 @@ import { TextRevealProvider } from "@/components/magicui/text-reveal-context";
 
 // Simple divider component that uses consistent container
 const Divider = () => (
-  <div className="container">
+  <div className="container mx-auto max-w-[2560px]">
     <hr className="border-t border-alexandria-border" />
   </div>
 );

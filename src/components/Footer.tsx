@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <footer className="container mt-auto py-8">
+    <footer className="container mx-auto max-w-[2560px] mt-auto py-8">
       <div className="flex flex-wrap justify-center space-x-6 md:space-x-12 py-8">
         <Link 
           href="/app" 

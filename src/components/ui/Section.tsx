@@ -57,7 +57,7 @@ export const Section = ({
 }: SectionProps) => {
   // If container is true, wrap children in a container div
   const content = container ? (
-    <div className={clsx("container h-full", innerClassName)}>
+    <div className={clsx("container mx-auto max-w-[2560px] h-full", innerClassName)}>
       {children}
     </div>
   ) : children;
@@ -142,7 +142,7 @@ export const Column = ({
       className={clsx(
         "w-full",
         widthClasses[width],
-        divider && "md:border-l border-alexandria-border md:pl-8",
+        divider && "md:border-l border-alexandria-border md:pl-[5%]",
         className
       )}
       {...props}

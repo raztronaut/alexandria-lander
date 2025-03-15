@@ -81,7 +81,7 @@
 }
 
 @layer components {
-  /* Container now uses fluid padding without snap points - see tailwind.config.js */
+  /* Container now uses consistent 5% padding on all screen sizes */
 
   /* Sidebar and overlay styles for better organization */
   .sidebar-overlay {
@@ -94,8 +94,6 @@
     z-index: var(--z-sidebar);
   }
 }
-
-
 
 @layer base {
   * {
