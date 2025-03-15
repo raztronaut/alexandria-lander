@@ -4,9 +4,12 @@
 
 @layer base {
   :root {
-    --z-header: 5;
-    --z-content: 10;
-    --z-sidebar: 50;
+    /* Z-index variables - ensure these are correctly applied */
+    --z-loading: 9999; /* Highest z-index for the loading screen */
+    --z-header: 1;
+    --z-content: 50;
+    --z-footer: 10;
+    --z-sidebar: 1000; /* Increased from 100 to ensure it's above all other UI elements */
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;

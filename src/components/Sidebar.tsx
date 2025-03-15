@@ -32,7 +32,7 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
     <>
       {/* Overlay that appears behind the sidebar */}
       <div 
-        className={`fixed inset-0 bg-black/50 transition-opacity duration-300 z-40 ${
+        className={`sidebar-overlay ${
           isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         onClick={onClose}
@@ -41,7 +41,7 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
       
       {/* The sidebar drawer */}
       <div
-        className={`fixed top-0 right-0 h-full w-full md:w-3/5 bg-[#fff4d5] transition-transform duration-300 ease-in-out z-50 ${
+        className={`sidebar-drawer w-full md:w-3/5 bg-[#fff4d5] ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         role="dialog"
@@ -90,6 +90,7 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
                 src="/images/tree.png"
                 alt="Majestic tree in a scenic landscape"
                 fill
+                sizes="(max-width: 768px) 100vw, 240px"
                 className="object-cover"
               />
             </div>

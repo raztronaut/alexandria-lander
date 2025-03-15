@@ -10,9 +10,18 @@ import { MenuIcon } from './ui/icons/MenuIcon';
 interface HeaderProps {
   className?: string;
   style?: React.CSSProperties;
+  isAnimated?: boolean;
+  stageOneVisible?: boolean; // Controls visibility of the "Alexandria" title
+  stageTwoVisible?: boolean; // Controls visibility of the rest of the header
 }
 
-export const Header = ({ className, style }: HeaderProps = {}) => {
+export const Header = ({ 
+  className, 
+  style,
+  isAnimated = false,
+  stageOneVisible = true,
+  stageTwoVisible = true
+}: HeaderProps = {}) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const handleToggleSidebar = () => {
@@ -26,7 +35,7 @@ export const Header = ({ className, style }: HeaderProps = {}) => {
   return (
     <>
       <header 
-        className={className || "w-full pt-5 md:pt-6 fixed top-0 left-0 bg-white/80 backdrop-blur-sm"}
+        className={`${className || "w-full pt-5 md:pt-6 fixed top-0 left-0 bg-white/80 backdrop-blur-sm"}`}
         style={style || { zIndex: 'var(--z-header)' }}
       >
         <div className="container mx-auto max-w-[2560px]">
@@ -34,18 +43,20 @@ export const Header = ({ className, style }: HeaderProps = {}) => {
           <div className="flex items-start justify-between relative">
             {/* Header content wrapper - using flex with justify-between for dynamic spacing */}
             <div className="flex flex-col md:flex-row items-start md:items-end md:w-full md:justify-between md:pr-12">
-              {/* Alexandria text logo */}
-              <Heading 
-                as="h1" 
-                variant="title" 
-                size="xl" 
-                className="-my-1 xs:-my-1.5 sm:-my-2 md:-my-2.5 lg:-my-3 text-[3.5rem] xs:text-[4.5rem] sm:text-[5.5rem] md:text-alexandria-medium lg:text-alexandria-large font-serif leading-none tracking-tighter select-none"
-              >
-                Alexandria
-              </Heading>
+              {/* Alexandria text logo - Stage One */}
+              <div className={`transition-opacity duration-1000 ${stageOneVisible ? 'opacity-100' : 'opacity-0'}`}>
+                <Heading 
+                  as="h1" 
+                  variant="title" 
+                  size="xl" 
+                  className="-my-1 xs:-my-1.5 sm:-my-2 md:-my-2.5 lg:-my-3 text-[3.5rem] xs:text-[4.5rem] sm:text-[5.5rem] md:text-alexandria-medium lg:text-alexandria-large font-serif leading-none tracking-tighter select-none"
+                >
+                  Alexandria
+                </Heading>
+              </div>
               
-              {/* Right side content - below on small screens, auto-spaced on md+ */}
-              <div className="flex mt-1 md:mt-0 md:ml-8 lg:ml-21 xl:ml-32">
+              {/* Right side content - Stage Two */}
+              <div className={`flex mt-1 md:mt-0 md:ml-8 lg:ml-21 xl:ml-32 transition-opacity duration-1000 ${stageTwoVisible ? 'opacity-100' : 'opacity-0'}`}>
                 {/* Logo and divider container for small screens - hidden on md+ */}
                 <div className="flex items-center md:hidden">
                   {/* Logo on small screens */}
@@ -85,8 +96,8 @@ export const Header = ({ className, style }: HeaderProps = {}) => {
               </div>
             </div>
 
-            {/* Hamburger menu button - always positioned at the top right */}
-            <div className="absolute right-0">
+            {/* Hamburger menu button - always positioned at the top right - Stage Two */}
+            <div className={`absolute right-0 transition-opacity duration-1000 ${stageTwoVisible ? 'opacity-100' : 'opacity-0'}`}>
               <IconButton
                 onClick={handleToggleSidebar}
                 aria-label="Open menu"

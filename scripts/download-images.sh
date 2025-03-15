@@ -4,7 +4,7 @@
 mkdir -p public/images
 
 # Download Ancient Philosophy image
-curl -o "public/images/Ancient Philosophy May 2023.jpg" https://upload.wikimedia.org/wikipedia/commons/8/8c/David_-_The_Death_of_Socrates.jpg
+curl -o "public/images/Ancient-Philosophy-May-2023.jpg" https://upload.wikimedia.org/wikipedia/commons/8/8c/David_-_The_Death_of_Socrates.jpg
 
 # Download image1 (technology chip)
 curl -o public/images/image1.jpg https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=500&auto=format&fit=crop
