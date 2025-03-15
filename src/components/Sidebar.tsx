@@ -5,6 +5,8 @@ import { Text } from './ui/Typography';
 import Image from 'next/image';
 import Link from 'next/link';
 import localFont from 'next/font/local';
+import { IconButton } from './ui/IconButton';
+import { CloseIcon } from './ui/icons/CloseIcon';
 
 // Load TT Hoves Pro Medium font
 const ttHovesPro = localFont({
@@ -72,26 +74,21 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
               On md+ (60% width): position at 0 since padding is already adjusted to 8.33%
             */}
             <div className="absolute right-0 top-0 pt-6">
-              <button
-                className="p-2 rounded-full bg-black text-white hover:bg-black/90 focus:outline-none focus:ring-2 focus:ring-black/20"
+              <IconButton
                 onClick={onClose}
                 aria-label="Close menu"
                 tabIndex={0}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="18" y1="6" x2="6" y2="18"></line>
-                  <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-              </button>
+                icon={<CloseIcon fontVariable={ttHovesPro.variable} />}
+              />
             </div>
           </div>
           
           {/* Placeholder Image - with increased padding */}
-          <div className="pt-12 pb-10 w-full">
-            <div className="bg-gray-200 w-full h-[180px] relative">
+          <div className="pt-16 pb-10 w-full">
+            <div className="bg-gray-200 w-full h-[240px] relative rounded-xl overflow-hidden">
               <Image
-                src="/images/image1.jpg"
-                alt="Placeholder image"
+                src="/images/tree.png"
+                alt="Majestic tree in a scenic landscape"
                 fill
                 className="object-cover"
               />
