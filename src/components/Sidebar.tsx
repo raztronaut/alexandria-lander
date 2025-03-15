@@ -51,22 +51,20 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
         {/* Match the container structure from Header */}
         <div className="container h-full flex flex-col">
           {/* Header layout with close button in same position as hamburger */}
-          <div className="flex flex-col md:flex-row items-start md:items-end justify-between relative pt-5 md:pt-6">
-            <div className="flex flex-col md:flex-row items-start md:items-end">
-              {/* Logo on the left */}
-              <div>
-                <Image
-                  src="/images/logo.png"
-                  alt="Alexandria Logo"
-                  width={60}
-                  height={60}
-                  className="object-contain"
-                />
-              </div>
+          <div className="flex justify-between items-center relative pt-5 md:pt-6">
+            {/* Logo on the left */}
+            <div>
+              <Image
+                src="/images/logo.png"
+                alt="Alexandria Logo"
+                width={60}
+                height={60}
+                className="object-contain"
+              />
             </div>
 
             {/* Close button positioned exactly like hamburger button in header */}
-            <div className="md:self-start pt-7">
+            <div className="absolute right-0 top-5 md:top-6">
               <button
                 className="p-2 rounded-full bg-black text-white hover:bg-black/90 focus:outline-none focus:ring-2 focus:ring-black/20"
                 onClick={onClose}

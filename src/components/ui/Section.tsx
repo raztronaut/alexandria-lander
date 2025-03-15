@@ -3,12 +3,12 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { clsx } from 'clsx';
 
 const sectionVariants = cva(
-  "w-full bg-white", 
+  "w-full", 
   {
     variants: {
       variant: {
         default: "pt-0 pb-16",
-        hero: "pt-0 pb-16",
+        hero: "pt-0 pb-0",
         compact: "py-8",
         spacious: "py-24",
       },
@@ -22,11 +22,16 @@ const sectionVariants = cva(
         bottom: "border-b border-alexandria-border",
         both: "border-t border-b border-alexandria-border",
       },
+      background: {
+        white: "bg-white",
+        transparent: "bg-transparent",
+      }
     },
     defaultVariants: {
       variant: "default",
       container: true,
       divider: "none",
+      background: "white",
     },
   }
 );
@@ -45,6 +50,7 @@ export const Section = ({
   variant,
   container = true,
   divider,
+  background,
   as: Component = 'section',
   children,
   ...props
@@ -58,7 +64,7 @@ export const Section = ({
 
   return (
     <Component 
-      className={clsx(sectionVariants({ variant, container, divider }), className)}
+      className={clsx(sectionVariants({ variant, container, divider, background }), className)}
       {...props}
     >
       {content}
@@ -106,7 +112,7 @@ export const Row = ({
 // Column component for use within rows
 export interface ColumnProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
-  width?: 'auto' | 'full' | '1/2' | '1/3' | '2/3' | '1/4' | '3/4' | '1/5' | '4/5';
+  width?: 'auto' | 'full' | '1/2' | '1/3' | '2/3' | '1/4' | '3/4' | '1/5' | '2/5' | '3/5' | '4/5';
   divider?: boolean;
 }
 
@@ -126,6 +132,8 @@ export const Column = ({
     '1/4': 'md:w-1/4',
     '3/4': 'md:w-3/4',
     '1/5': 'md:w-1/5',
+    '2/5': 'md:w-2/5',
+    '3/5': 'md:w-3/5',
     '4/5': 'md:w-4/5',
   };
 
