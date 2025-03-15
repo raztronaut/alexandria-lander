@@ -49,8 +49,14 @@ export const CustomTextReveal: FC<CustomTextRevealProps> = ({
   }, [order, canAnimate]);
   
   useEffect(() => {
+    // Only mark section complete if completed state is true
     if (completed) {
-      markSectionComplete(id);
+      // Avoid rapid state updates if user is scrolling fast
+      const timeoutId = setTimeout(() => {
+        markSectionComplete(id);
+      }, 50); // Small delay to smooth out updates
+      
+      return () => clearTimeout(timeoutId);
     }
   }, [completed, id, markSectionComplete]);
 
@@ -62,7 +68,10 @@ export const CustomTextReveal: FC<CustomTextRevealProps> = ({
   
   // When the last word is fully revealed, mark this section as complete
   const handleLastWordRevealed = () => {
-    setCompleted(true);
+    // Using setTimeout to defer state update until after current render cycle
+    setTimeout(() => {
+      setCompleted(true);
+    }, 0);
   };
 
   return (
@@ -129,7 +138,10 @@ const Word: FC<WordProps> = ({
     if (isLastWord && onFullyRevealed) {
       const unsubscribe = opacity.on("change", (value) => {
         if (value >= 0.99) {
-          onFullyRevealed();
+          // Using setTimeout to ensure it runs after the current render cycle is complete
+          setTimeout(() => {
+            onFullyRevealed();
+          }, 0);
           unsubscribe();
         }
       });

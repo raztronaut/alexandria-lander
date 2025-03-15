@@ -39,7 +39,7 @@ export const Header = ({ className, style }: HeaderProps = {}) => {
                 as="h1" 
                 variant="title" 
                 size="xl" 
-                className="-my-1 xs:-my-1.5 sm:-my-2 md:-my-2.5 lg:-my-3 text-[3.5rem] xs:text-[4.5rem] sm:text-[5.5rem] md:text-alexandria-medium lg:text-alexandria-large font-serif leading-none tracking-tighter"
+                className="-my-1 xs:-my-1.5 sm:-my-2 md:-my-2.5 lg:-my-3 text-[3.5rem] xs:text-[4.5rem] sm:text-[5.5rem] md:text-alexandria-medium lg:text-alexandria-large font-serif leading-none tracking-tighter select-none"
               >
                 Alexandria
               </Heading>

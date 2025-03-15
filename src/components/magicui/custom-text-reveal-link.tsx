@@ -54,8 +54,14 @@ export const CustomTextRevealLink: FC<CustomTextRevealLinkProps> = ({
   }, [order, canAnimate]);
   
   useEffect(() => {
+    // Only mark section complete if completed state is true
     if (completed) {
-      markSectionComplete(id);
+      // Avoid rapid state updates if user is scrolling fast
+      const timeoutId = setTimeout(() => {
+        markSectionComplete(id);
+      }, 50); // Small delay to smooth out updates
+      
+      return () => clearTimeout(timeoutId);
     }
   }, [completed, id, markSectionComplete]);
 
